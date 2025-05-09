@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Siswa</title>
+  </head>
+  <body>
+    <h2>Tambah Siswa</h2>
+    <input type="text" id="nama" placeholder="Nama" /><br />
+    <input type="number" id="umur" placeholder="Umur" /><br />
+    <input type="text" id="hobi" placeholder="Hobi" /><br />
+    <button onclick="tambahSiswa()">Tambah</button>
+
+    <h2>Daftar Siswa</h2>
+    <ul id="listSiswa"></ul>
+
+    <script>
+      let siswa = [];
+
+      function tambahSiswa() {
+        let nama = document.getElementById("nama").value;
+        let umur = document.getElementById("umur").value;
+        let hobi = document.getElementById("hobi").value;
+
+        siswa.push({ nama, umur, hobi });
+        tampilkan();
+      }
+
+      function tampilkan() {
+        let list = document.getElementById("listSiswa");
+        list.innerHTML = "";
+        siswa.forEach((s, i) => {
+          list.innerHTML += `<li>${s.nama} (${s.umur} th), Hobi: ${s.hobi}</li>`;
+        });
+      }
+    </script>
+  </body>
+</html>
